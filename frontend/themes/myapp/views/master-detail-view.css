@@ -31,7 +31,6 @@ master-detail-view .editor vaadin-checkbox {
 master-detail-view .button-layout {
   width: 100%;
   flex-wrap: wrap;
-  background-color: var(--lumo-contrast-5pct);
   padding-bottom: var(--lumo-space-s);
   padding-top: var(--lumo-space-s);
   padding-left: var(--lumo-space-l);
