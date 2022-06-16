@@ -82,7 +82,10 @@ export class MasterDetailView extends View {
                         ></vaadin-grid-column>
                     </vaadin-grid>
                 </div>
-                <person-form style="width: 30%"></person-form>
+                <person-form
+                        style="width: 30%"
+                        @contact-form-saved=${this.contactFormSave}
+                ></person-form>
             </vaadin-split-layout>
         `;
     }
@@ -117,9 +120,13 @@ export class MasterDetailView extends View {
         this.grid.clearCache();
     }
 
-    async search(e: CustomEvent) {
+    private async search(e: CustomEvent) {
         this.filter = e.detail.value;
         this.gridSize = (await SamplePersonEndpoint.count(this.filter)) ?? 0;
+        this.refreshGrid();
+    }
+
+    private contactFormSave(e: CustomEvent) {
         this.refreshGrid();
     }
 }
