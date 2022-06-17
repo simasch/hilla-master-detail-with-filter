@@ -111,8 +111,7 @@ export class MasterDetailView extends View {
     }
 
     private async itemSelected(event: CustomEvent) {
-        const item: SamplePerson = event.detail.value as SamplePerson;
-        personStore.setSelectedPerson(item);
+        personStore.selectedPerson = event.detail.value as SamplePerson;
     }
 
     private refreshGrid() {

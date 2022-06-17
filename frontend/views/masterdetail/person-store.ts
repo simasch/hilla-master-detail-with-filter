@@ -12,10 +12,6 @@ class PersonStore {
             {autoBind: true}
         );
     }
-
-    setSelectedPerson(samplePerson: SamplePerson) {
-        this.selectedPerson = samplePerson;
-    }
 }
 
 export const personStore = new PersonStore();
