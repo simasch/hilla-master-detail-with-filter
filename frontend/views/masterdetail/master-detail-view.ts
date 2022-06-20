@@ -22,7 +22,7 @@ import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
 import * as SamplePersonEndpoint from 'Frontend/generated/SamplePersonEndpoint';
 import {html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
+import {customElement, query, state} from 'lit/decorators.js';
 import {View} from '../view';
 import {personStore} from 'Frontend/views/masterdetail/person-store';
 
@@ -32,7 +32,7 @@ export class MasterDetailView extends View {
     @query('#grid')
     private grid!: Grid;
 
-    @property({type: Number})
+    @state()
     private gridSize = 0;
 
     private filter = '';
@@ -46,7 +46,7 @@ export class MasterDetailView extends View {
             </vaadin-vertical-layout>
 
             <vaadin-split-layout>
-                <div class="grid-wrapper" style="width: 70%">
+                <div class="grid-wrapper" style="width: 75%">
                     <vaadin-grid
                             id="grid"
                             theme="no-border"
@@ -83,7 +83,7 @@ export class MasterDetailView extends View {
                     </vaadin-grid>
                 </div>
                 <person-form
-                        style="width: 30%"
+                        style="width: 25%"
                         @contact-form-saved=${this.contactFormSave}
                 ></person-form>
             </vaadin-split-layout>
