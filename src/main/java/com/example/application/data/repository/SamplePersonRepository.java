@@ -2,7 +2,6 @@ package com.example.application.data.repository;
 
 import com.example.application.data.entity.SamplePerson;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
