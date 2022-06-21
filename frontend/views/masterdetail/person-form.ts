@@ -1,9 +1,6 @@
 import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {View} from 'Frontend/views/view';
-import '@vaadin/button';
-import '@vaadin/combo-box';
-import '@vaadin/text-field';
 import {Binder, field} from '@hilla/form';
 import SamplePerson from 'Frontend/generated/com/example/application/data/entity/SamplePerson';
 import SamplePersonModel from 'Frontend/generated/com/example/application/data/entity/SamplePersonModel';
@@ -11,6 +8,12 @@ import * as SamplePersonEndpoint from 'Frontend/generated/SamplePersonEndpoint';
 import {Notification} from '@vaadin/notification';
 import {EndpointError} from '@hilla/frontend';
 import {personStore} from 'Frontend/views/masterdetail/person-store';
+import '@vaadin/button';
+import '@vaadin/checkbox';
+import '@vaadin/text-field';
+import "@vaadin/form-layout";
+import "@vaadin/date-picker";
+import "@vaadin/horizontal-layout";
 
 @customElement('person-form')
 export class PersonForm extends View {

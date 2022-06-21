@@ -1,22 +1,5 @@
-import '@vaadin/button';
-import '@vaadin/date-picker';
-import '@vaadin/date-time-picker';
-import '@vaadin/form-layout';
-import '@vaadin/grid';
 import {Grid, GridDataProviderCallback, GridDataProviderParams} from '@vaadin/grid';
 import {columnBodyRenderer} from '@vaadin/grid/lit';
-import '@vaadin/grid/vaadin-grid-sort-column';
-import '@vaadin/horizontal-layout';
-import '@vaadin/icon';
-import '@vaadin/icons';
-import '@vaadin/notification';
-import '@vaadin/polymer-legacy-adapter';
-import '@vaadin/split-layout';
-import '@vaadin/vertical-layout';
-import '@vaadin/text-field';
-import '@vaadin/upload';
-import '@vaadin/vaadin-icons';
-import './person-form';
 import SamplePerson from 'Frontend/generated/com/example/application/data/entity/SamplePerson';
 import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
@@ -25,6 +8,12 @@ import {html} from 'lit';
 import {customElement, query, state} from 'lit/decorators.js';
 import {View} from '../view';
 import {personStore} from 'Frontend/views/masterdetail/person-store';
+import "@vaadin/vertical-layout";
+import "@vaadin/split-layout";
+import "@vaadin/grid";
+import "@vaadin/grid/vaadin-grid-sort-column";
+import "@vaadin/icon";
+import "./person-form";
 
 @customElement('master-detail-view')
 export class MasterDetailView extends View {
