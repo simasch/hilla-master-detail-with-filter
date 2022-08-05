@@ -4,11 +4,13 @@ import {Notification} from '@vaadin/notification';
 import '@vaadin/text-field';
 import * as HelloWorldEndpoint from 'Frontend/generated/HelloWorldEndpoint';
 import {html} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import {customElement, property} from 'lit/decorators.js';
 import {View} from '../../views/view';
 
 @customElement('hello-world-view')
 export class HelloWorldView extends View {
+
+    @property()
     name = '';
 
     connectedCallback() {

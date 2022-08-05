@@ -2,9 +2,6 @@ import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {View} from 'Frontend/views/view';
 import {Binder, field} from '@hilla/form';
-import SamplePerson from 'Frontend/generated/com/example/application/data/entity/SamplePerson';
-import SamplePersonModel from 'Frontend/generated/com/example/application/data/entity/SamplePersonModel';
-import * as SamplePersonEndpoint from 'Frontend/generated/SamplePersonEndpoint';
 import {Notification} from '@vaadin/notification';
 import {EndpointError} from '@hilla/frontend';
 import {personStore} from 'Frontend/views/masterdetail/person-store';
@@ -14,14 +11,18 @@ import '@vaadin/text-field';
 import "@vaadin/form-layout";
 import "@vaadin/date-picker";
 import "@vaadin/horizontal-layout";
+import PersonModel from 'Frontend/generated/com/example/application/entity/PersonModel';
+import Person from 'Frontend/generated/com/example/application/entity/Person';
+import {PersonEndpoint} from 'Frontend/generated/endpoints';
 
 @customElement('person-form')
 export class PersonForm extends View {
 
-    private binder = new Binder<SamplePerson, SamplePersonModel>(this, SamplePersonModel);
+    private binder = new Binder<Person, PersonModel>(this, PersonModel);
 
     constructor() {
         super();
+
         this.autorun(() => {
             if (personStore.selectedPerson) {
                 this.binder.read(personStore.selectedPerson);
@@ -83,7 +84,7 @@ export class PersonForm extends View {
 
     private async save() {
         try {
-            await this.binder.submitTo(SamplePersonEndpoint.update);
+            await this.binder.submitTo(PersonEndpoint.update);
             this.binder.clear();
 
             personStore.selectedPerson = null;
@@ -91,6 +92,7 @@ export class PersonForm extends View {
             this.dispatchEvent(new CustomEvent('contact-form-saved'));
 
             Notification.show(`SamplePerson details stored.`, {position: 'bottom-start'});
+
         } catch (error: any) {
             if (error instanceof EndpointError) {
                 Notification.show(`Server error. ${error.message}`, {theme: 'error', position: 'bottom-start'});

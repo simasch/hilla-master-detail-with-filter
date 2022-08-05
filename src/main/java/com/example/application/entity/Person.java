@@ -1,15 +1,20 @@
-package com.example.application.data.entity;
+package com.example.application.entity;
 
 import dev.hilla.Nonnull;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
-public class SamplePerson extends AbstractEntity {
+public class Person {
 
+    @Id
+    @GeneratedValue
+    private Integer id;
     @NotBlank
     private String firstName;
     @NotBlank
@@ -25,6 +30,14 @@ public class SamplePerson extends AbstractEntity {
     private String occupation;
     @Nonnull
     private boolean important;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;

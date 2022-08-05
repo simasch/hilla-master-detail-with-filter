@@ -1,29 +1,28 @@
-package com.example.application.data.endpoint;
+package com.example.application.endpoints;
 
-import com.example.application.data.entity.SamplePerson;
-import com.example.application.data.repository.SamplePersonRepository;
+import com.example.application.entity.Person;
+import com.example.application.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.Endpoint;
 import dev.hilla.Nonnull;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 @Endpoint
 @AnonymousAllowed
-public class SamplePersonEndpoint {
+public class PersonEndpoint {
 
-    private final SamplePersonRepository repository;
+    private final PersonRepository repository;
 
-    public SamplePersonEndpoint(SamplePersonRepository repository) {
+    public PersonEndpoint(PersonRepository repository) {
         this.repository = repository;
     }
 
     @Nonnull
-    public Page<@Nonnull SamplePerson> list(String filter, Pageable pageable) {
+    public Page<@Nonnull Person> list(String filter, Pageable pageable) {
         if (filter == null || filter.equals("")) {
             return repository.findAll(pageable);
         } else {
@@ -31,16 +30,16 @@ public class SamplePersonEndpoint {
         }
     }
 
-    public Optional<SamplePerson> get(@Nonnull UUID id) {
+    public Optional<Person> get(@Nonnull Integer id) {
         return repository.findById(id);
     }
 
     @Nonnull
-    public SamplePerson update(@Nonnull SamplePerson entity) {
+    public Person update(@Nonnull Person entity) {
         return repository.save(entity);
     }
 
-    public void delete(@Nonnull UUID id) {
+    public void delete(@Nonnull Integer id) {
         repository.deleteById(id);
     }
 

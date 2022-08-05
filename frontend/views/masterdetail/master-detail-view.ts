@@ -1,9 +1,9 @@
 import {Grid, GridDataProviderCallback, GridDataProviderParams} from '@vaadin/grid';
 import {columnBodyRenderer} from '@vaadin/grid/lit';
-import SamplePerson from 'Frontend/generated/com/example/application/data/entity/SamplePerson';
+import Person from 'Frontend/generated/com/example/application/entity/Person';
 import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
-import * as SamplePersonEndpoint from 'Frontend/generated/SamplePersonEndpoint';
+import * as SamplePersonEndpoint from 'Frontend/generated/PersonEndpoint';
 import {html} from 'lit';
 import {customElement, query, state} from 'lit/decorators.js';
 import {View} from '../view';
@@ -53,7 +53,7 @@ export class MasterDetailView extends View {
                         <vaadin-grid-column
                                 path="important"
                                 auto-width
-                                ${columnBodyRenderer<SamplePerson>((item) =>
+                                ${columnBodyRenderer<Person>((item) =>
                                         item.important
                                                 ? html`
                                                     <vaadin-icon
@@ -82,9 +82,14 @@ export class MasterDetailView extends View {
         `;
     }
 
+    async connectedCallback() {
+        super.connectedCallback();
+        this.gridSize = (await SamplePersonEndpoint.count(this.filter)) ?? 0;
+    }
+
     private async getGridData(
-        params: GridDataProviderParams<SamplePerson>,
-        callback: GridDataProviderCallback<SamplePerson | undefined>
+        params: GridDataProviderParams<Person>,
+        callback: GridDataProviderCallback<Person | undefined>
     ) {
         const sort: Sort = {
             orders: params.sortOrders.map((order) => ({
@@ -97,13 +102,8 @@ export class MasterDetailView extends View {
         callback(data);
     }
 
-    async connectedCallback() {
-        super.connectedCallback();
-        this.gridSize = (await SamplePersonEndpoint.count(this.filter)) ?? 0;
-    }
-
     private async itemSelected(event: CustomEvent) {
-        personStore.selectedPerson = event.detail.value as SamplePerson;
+        personStore.selectedPerson = event.detail.value as Person;
     }
 
     private refreshGrid() {
@@ -117,11 +117,7 @@ export class MasterDetailView extends View {
         this.refreshGrid();
     }
 
-    private contactFormSave(e: CustomEvent) {
+    private contactFormSave() {
         this.refreshGrid();
-    }
-
-    _openTab(e: Event){
-        window.open("https://google.com", "_blank");
     }
 }
