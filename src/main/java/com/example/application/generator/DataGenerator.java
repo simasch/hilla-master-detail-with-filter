@@ -4,15 +4,12 @@ import com.example.application.entity.Person;
 import com.example.application.repository.PersonRepository;
 import com.vaadin.exampledata.DataType;
 import com.vaadin.exampledata.ExampleDataGenerator;
-
-import java.time.LocalDateTime;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 @Component
 public class DataGenerator implements ApplicationRunner {
@@ -31,15 +28,15 @@ public class DataGenerator implements ApplicationRunner {
         }
         int seed = 123;
 
-        ExampleDataGenerator<Person> samplePersonRepositoryGenerator = new ExampleDataGenerator<>(
+        ExampleDataGenerator<Person> dataGenerator = new ExampleDataGenerator<>(
                 Person.class, LocalDateTime.of(2022, 6, 14, 0, 0, 0));
-        samplePersonRepositoryGenerator.setData(Person::setFirstName, DataType.FIRST_NAME);
-        samplePersonRepositoryGenerator.setData(Person::setLastName, DataType.LAST_NAME);
-        samplePersonRepositoryGenerator.setData(Person::setEmail, DataType.EMAIL);
-        samplePersonRepositoryGenerator.setData(Person::setPhone, DataType.PHONE_NUMBER);
-        samplePersonRepositoryGenerator.setData(Person::setDateOfBirth, DataType.DATE_OF_BIRTH);
-        samplePersonRepositoryGenerator.setData(Person::setOccupation, DataType.OCCUPATION);
-        samplePersonRepositoryGenerator.setData(Person::setImportant, DataType.BOOLEAN_10_90);
-        personRepository.saveAll(samplePersonRepositoryGenerator.create(100, seed));
+        dataGenerator.setData(Person::setFirstName, DataType.FIRST_NAME);
+        dataGenerator.setData(Person::setLastName, DataType.LAST_NAME);
+        dataGenerator.setData(Person::setEmail, DataType.EMAIL);
+        dataGenerator.setData(Person::setPhone, DataType.PHONE_NUMBER);
+        dataGenerator.setData(Person::setDateOfBirth, DataType.DATE_OF_BIRTH);
+        dataGenerator.setData(Person::setOccupation, DataType.OCCUPATION);
+        dataGenerator.setData(Person::setImportant, DataType.BOOLEAN_10_90);
+        personRepository.saveAll(dataGenerator.create(100, seed));
     }
 }

@@ -3,7 +3,7 @@ import {columnBodyRenderer} from '@vaadin/grid/lit';
 import Person from 'Frontend/generated/com/example/application/entity/Person';
 import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
-import * as SamplePersonEndpoint from 'Frontend/generated/PersonEndpoint';
+import * as PersonEndpoint from 'Frontend/generated/PersonEndpoint';
 import {html} from 'lit';
 import {customElement, query, state} from 'lit/decorators.js';
 import {View} from '../view';
@@ -84,7 +84,7 @@ export class MasterDetailView extends View {
 
     async connectedCallback() {
         super.connectedCallback();
-        this.gridSize = (await SamplePersonEndpoint.count(this.filter)) ?? 0;
+        this.gridSize = (await PersonEndpoint.count(this.filter)) ?? 0;
     }
 
     private async getGridData(
@@ -98,7 +98,7 @@ export class MasterDetailView extends View {
                 ignoreCase: false,
             })),
         };
-        const data = await SamplePersonEndpoint.list(this.filter, {pageNumber: params.page, pageSize: params.pageSize, sort});
+        const data = await PersonEndpoint.list(this.filter, {pageNumber: params.page, pageSize: params.pageSize, sort});
         callback(data);
     }
 
@@ -113,7 +113,7 @@ export class MasterDetailView extends View {
 
     private async search(e: CustomEvent) {
         this.filter = e.detail.value;
-        this.gridSize = (await SamplePersonEndpoint.count(this.filter)) ?? 0;
+        this.gridSize = (await PersonEndpoint.count(this.filter)) ?? 0;
         this.refreshGrid();
     }
 

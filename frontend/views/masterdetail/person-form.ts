@@ -91,7 +91,7 @@ export class PersonForm extends View {
 
             this.dispatchEvent(new CustomEvent('contact-form-saved'));
 
-            Notification.show(`SamplePerson details stored.`, {position: 'bottom-start'});
+            Notification.show(`Person details stored.`, {position: 'bottom-start'});
 
         } catch (error: any) {
             if (error instanceof EndpointError) {

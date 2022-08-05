@@ -1,9 +1,9 @@
 import {makeAutoObservable, observable} from 'mobx';
-import SamplePerson from 'Frontend/generated/com/example/application/data/entity/SamplePerson';
+import Person from 'Frontend/generated/com/example/application/entity/Person';
 
 class PersonStore {
 
-    selectedPerson: SamplePerson | null = null;
+    selectedPerson: Person | null = null;
 
     constructor() {
         makeAutoObservable(
