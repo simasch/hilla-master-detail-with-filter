@@ -11,9 +11,9 @@ import '@vaadin/text-field';
 import "@vaadin/form-layout";
 import "@vaadin/date-picker";
 import "@vaadin/horizontal-layout";
-import PersonModel from 'Frontend/generated/com/example/application/entity/PersonModel';
-import Person from 'Frontend/generated/com/example/application/entity/Person';
 import {PersonEndpoint} from 'Frontend/generated/endpoints';
+import Person from 'Frontend/generated/ch/martinelli/demo/hilla/entity/Person';
+import PersonModel from 'Frontend/generated/ch/martinelli/demo/hilla/entity/PersonModel';
 
 @customElement('person-form')
 export class PersonForm extends View {

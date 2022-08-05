@@ -1,7 +1,7 @@
-package com.example.application.generator;
+package ch.martinelli.demo.hilla.generator;
 
-import com.example.application.entity.Person;
-import com.example.application.repository.PersonRepository;
+import ch.martinelli.demo.hilla.entity.Person;
+import ch.martinelli.demo.hilla.repository.PersonRepository;
 import com.vaadin.exampledata.DataType;
 import com.vaadin.exampledata.ExampleDataGenerator;
 import org.springframework.boot.ApplicationArguments;

@@ -1,6 +1,5 @@
 import {Grid, GridDataProviderCallback, GridDataProviderParams} from '@vaadin/grid';
 import {columnBodyRenderer} from '@vaadin/grid/lit';
-import Person from 'Frontend/generated/com/example/application/entity/Person';
 import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
 import * as PersonEndpoint from 'Frontend/generated/PersonEndpoint';
@@ -14,6 +13,7 @@ import "@vaadin/grid";
 import "@vaadin/grid/vaadin-grid-sort-column";
 import "@vaadin/icon";
 import "./person-form";
+import Person from 'Frontend/generated/ch/martinelli/demo/hilla/entity/Person';
 
 @customElement('master-detail-view')
 export class MasterDetailView extends View {

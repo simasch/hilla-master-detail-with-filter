@@ -1,4 +1,4 @@
-package com.example.application.entity;
+package ch.martinelli.demo.hilla.entity;
 
 import dev.hilla.Nonnull;
 

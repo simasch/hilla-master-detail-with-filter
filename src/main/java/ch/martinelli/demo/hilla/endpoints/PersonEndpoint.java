@@ -1,7 +1,7 @@
-package com.example.application.endpoints;
+package ch.martinelli.demo.hilla.endpoints;
 
-import com.example.application.entity.Person;
-import com.example.application.repository.PersonRepository;
+import ch.martinelli.demo.hilla.entity.Person;
+import ch.martinelli.demo.hilla.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.Endpoint;
 import dev.hilla.Nonnull;
@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Endpoint
 @AnonymousAllowed

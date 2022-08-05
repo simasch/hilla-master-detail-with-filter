@@ -1,5 +1,5 @@
 import {makeAutoObservable, observable} from 'mobx';
-import Person from 'Frontend/generated/com/example/application/entity/Person';
+import Person from 'Frontend/generated/ch/martinelli/demo/hilla/entity/Person';
 
 class PersonStore {
 
