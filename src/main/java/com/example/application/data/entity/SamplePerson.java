@@ -1,24 +1,27 @@
 package com.example.application.data.entity;
 
 import dev.hilla.Nonnull;
-import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 
 @Entity
 public class SamplePerson extends AbstractEntity {
 
-    @Nonnull
+    @NotBlank
     private String firstName;
-    @Nonnull
+    @NotBlank
     private String lastName;
     @Email
-    @Nonnull
+    @NotBlank
     private String email;
-    @Nonnull
+    @NotBlank
     private String phone;
-    private LocalDate dateOfBirth;
     @Nonnull
+    private LocalDate dateOfBirth;
+    @NotBlank
     private String occupation;
     @Nonnull
     private boolean important;

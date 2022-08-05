@@ -69,6 +69,9 @@ export class MasterDetailView extends View {
                                                     </vaadin-icon>`
                                 )}
                         ></vaadin-grid-column>
+                        <vaadin-grid-column>
+                            <button @click=this._openTab></button>
+                        </vaadin-grid-column>
                     </vaadin-grid>
                 </div>
                 <person-form
@@ -116,5 +119,9 @@ export class MasterDetailView extends View {
 
     private contactFormSave(e: CustomEvent) {
         this.refreshGrid();
+    }
+
+    _openTab(e: Event){
+        window.open("https://google.com", "_blank");
     }
 }
