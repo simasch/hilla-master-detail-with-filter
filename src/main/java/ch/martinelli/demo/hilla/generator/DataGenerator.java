@@ -28,8 +28,7 @@ public class DataGenerator implements ApplicationRunner {
         }
         int seed = 123;
 
-        ExampleDataGenerator<Person> dataGenerator = new ExampleDataGenerator<>(
-                Person.class, LocalDateTime.of(2022, 6, 14, 0, 0, 0));
+        ExampleDataGenerator<Person> dataGenerator = new ExampleDataGenerator<>(Person.class, LocalDateTime.now());
         dataGenerator.setData(Person::setFirstName, DataType.FIRST_NAME);
         dataGenerator.setData(Person::setLastName, DataType.LAST_NAME);
         dataGenerator.setData(Person::setEmail, DataType.EMAIL);
