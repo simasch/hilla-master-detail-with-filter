@@ -264,9 +264,7 @@
     "@vaadin/common-frontend": "$@vaadin/common-frontend",
     "construct-style-sheets-polyfill": "$construct-style-sheets-polyfill",
     "lit": "$lit",
-    "@polymer/polymer": "$@polymer/polymer",
-    "@hilla/form": "$@hilla/form",
-    "@hilla/frontend": "$@hilla/frontend"
+    "@polymer/polymer": "$@polymer/polymer"
   },
   "vaadin": {
     "dependencies": {
