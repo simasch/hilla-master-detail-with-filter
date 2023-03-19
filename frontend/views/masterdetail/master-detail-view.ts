@@ -1,12 +1,12 @@
-import {Grid, GridDataProviderCallback, GridDataProviderParams} from '@vaadin/grid';
-import {columnBodyRenderer} from '@vaadin/grid/lit';
+import { Grid, GridDataProviderCallback, GridDataProviderParams } from '@vaadin/grid';
+import { columnBodyRenderer } from '@vaadin/grid/lit';
 import Sort from 'Frontend/generated/dev/hilla/mappedtypes/Sort';
 import Direction from 'Frontend/generated/org/springframework/data/domain/Sort/Direction';
 import * as PersonEndpoint from 'Frontend/generated/PersonEndpoint';
-import {html} from 'lit';
-import {customElement, query, state} from 'lit/decorators.js';
-import {View} from '../view';
-import {personStore} from 'Frontend/views/masterdetail/person-store';
+import { html } from 'lit';
+import { customElement, query, state } from 'lit/decorators.js';
+import { View } from '../view';
+import { personStore } from 'Frontend/views/masterdetail/person-store';
 import "@vaadin/vertical-layout";
 import "@vaadin/split-layout";
 import "@vaadin/grid";
@@ -35,7 +35,7 @@ export class MasterDetailView extends View {
             </vaadin-vertical-layout>
 
             <vaadin-split-layout>
-                <div class="grid-wrapper" style="width: 75%">
+                <div class="grid-wrapper" style="width: 60%">
                     <vaadin-grid
                             id="grid"
                             theme="no-border"

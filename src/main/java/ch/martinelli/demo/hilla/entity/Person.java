@@ -20,7 +20,6 @@ public class Person {
     @NotBlank
     private String lastName;
     @Email
-    @NotBlank
     private String email;
     @NotBlank
     private String phone;
